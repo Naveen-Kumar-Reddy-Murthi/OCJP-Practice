@@ -1,6 +1,7 @@
 package org.mnr.reflection_30;
 
 import java.io.Serializable;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -36,19 +37,23 @@ public class ReflectionDemo {
 			//or
 			c=Employee.class;
 			
-			System.out.println(c.getCanonicalName());
-			System.out.println(Modifier.toString(c.getModifiers()));
-			System.out.println(c.getComponentType());
-			System.out.println(c.getSuperclass());
+			System.out.println("getCanonicalName:"+c.getCanonicalName());
+			System.out.println("Modifier"+Modifier.toString(c.getModifiers()));
+			System.out.println("getComponentType"+c.getComponentType());
+			System.out.println("getSuperclass"+c.getSuperclass());
 			
 			Class[] interfaces	=	c.getInterfaces();
 			for(Class i: interfaces){
-			System.out.println(i.getCanonicalName());
+			System.out.println(i.getName()+"|getCanonicalName:"+i.getCanonicalName());
 			System.out.println(Modifier.toString(i.getModifiers()));
 			System.out.println(i.getSigners());
 			
 			}
-			System.out.println(Arrays.toString(c.getDeclaredConstructors()));
+			
+			Constructor[] cons	=c.getDeclaredConstructors();
+			for(Constructor i: cons){
+			System.out.println();
+			}
 			System.out.println(c.getSuperclass());
 			System.out.println(Arrays.toString(c.getDeclaredMethods()));
 			System.out.println(Arrays.toString(c.getMethods()));		
