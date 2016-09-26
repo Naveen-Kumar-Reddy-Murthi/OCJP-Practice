@@ -1,5 +1,7 @@
 package org.mnr.java_common_keywords_methods;
 
+import java.util.Scanner;
+
 public class isInstanceMethod {
 
 	public static void main(String[] args) {
@@ -11,9 +13,11 @@ public class isInstanceMethod {
 		 * This method is equivalent ot instanceof keyword
 		 */
 			
+			Scanner sc	=	new Scanner(System.in);
+		
 			Thread t = new Thread();
 			try {
-				System.out.println(Class.forName(args[0]).isInstance(t));
+				System.out.println(Class.forName(sc.next()).isInstance(t));
 			} catch (ClassNotFoundException e) {
 				
 				e.printStackTrace();
