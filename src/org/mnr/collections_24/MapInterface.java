@@ -35,7 +35,7 @@ public class MapInterface {
 		/**
 		 * Entry Interface:
 		 * In map, each key-value pairt is called an entry
-		 * Without existence of map, there is no chance of Entry object's existence
+		 * Without existence of map, there is no point of Entry object's existence
 		 * Henc Entry interface is declared insie Map interface
 		 * Methods:
 		 * 1. Object getKey();

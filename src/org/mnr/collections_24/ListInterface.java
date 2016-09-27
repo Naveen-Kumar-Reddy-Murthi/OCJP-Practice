@@ -44,7 +44,7 @@ public class ListInterface {
 		 * heterogenius elements are allowed
 		 * null insertion is possible
 		 * default size:10
-		 * If size reaches capacity, new capacity =(currentcapacity*3/2)+1. But this varies from jdk to jdk implementation
+		 * If size reaches capacity, new capacity =(currentcapacity*3/2)+1. But this varies from jvm to jvm implementation
 		 * it implements RandomAccess interface(MI), Serializable and Clonable
 		 * ArrayList best suited for frequent data retrieval and data insertion
 		 * needs several shifts
