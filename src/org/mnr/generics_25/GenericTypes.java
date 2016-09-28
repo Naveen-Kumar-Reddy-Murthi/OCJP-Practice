@@ -69,7 +69,9 @@ public class GenericTypes {
 		//this method takes any type of arraylist
 	}
 	
-	public static <X>void m3(ArrayList<? extends X> list){
+	public static <Z,X> Z m3(ArrayList<? extends X> list){
+		
+		Z returnValue=null;
 		
 		/**
 		 * In place of Object there can be any object. Let's say Object as X
@@ -79,6 +81,8 @@ public class GenericTypes {
 		 * But within the method, we can't add anything to ArrayList as we don't know what X is
 		 * These type of Methods are best suited for reading purposes
 		 */
+		
+		return returnValue;
 	}
 	
 	public static <X> void m4(ArrayList<? super X> list){
