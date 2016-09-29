@@ -52,6 +52,7 @@ public class Cursors {
 		 * Iterator can be used on any collection object
 		 * Limitations:we can do read and remove using this but not addition or replacement
 		 * 				we can read only in forward direction but not in reverse
+		 * 				It starts at the beginning only  
 		 */
 		
 		ArrayList list	=	new ArrayList();
@@ -78,7 +79,7 @@ public class Cursors {
 		/**
 		 * We can use ListIterator only on List object
 		 * we travese both forward and reverse direction using this
-		 * 
+		 * ListIterator can start at any index
 		 */
 		
 		LinkedList list	=	new LinkedList();
