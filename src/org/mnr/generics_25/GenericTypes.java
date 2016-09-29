@@ -16,10 +16,10 @@ public class GenericTypes {
 		 * rules:
 		 * x can either be class or interface
 		 * if x is class, as type parameter, we can only pass x or its child classes
-		 * If x is an interface, we either passx type or its implementation classes
+		 * If x is an interface, we either pass type or its implementation classes
 		 * Generic classes which are bounded to particular type
 		 * Below generic class is bounded with Integer type
-		 * Noother will be accepted while creating object
+		 * No other will be accepted while creating object
 		 */
 		Template1<Integer> template1	=	new Template1<Integer>(new Integer(1));
 		template1.show();
