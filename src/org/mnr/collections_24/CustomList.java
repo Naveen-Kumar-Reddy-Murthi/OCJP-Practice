@@ -48,6 +48,10 @@ implements List<E>, RandomAccess, Cloneable, java.io.Serializable{
 				elementData=Arrays.copyOf(elementData, size,Object[].class);
 			}	
 		}
+		else {
+            // replace with empty array.
+            this.elementData = EMPTY_ELEMENTDATA;
+        }
 		
 	}
 

@@ -9,8 +9,8 @@ public class JavaIdentifiersValidation {
 	public static void main(String[] args) {
 	/**
 	 * allowed characters are a-z,A-Z,0-9,$,#
-	 * length of each identifier should be atleast 2
-	 * first character should be lowecase alphabet between a-k
+	 * length of each identifier should be at least 2
+	 * first character should be lower case alphabet between a-k
 	 * second character should be a digit divisible by 3(0,3,6,9)
 	 * 
 	 */
