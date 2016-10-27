@@ -25,7 +25,7 @@ public class Overriding {
 //		OverridingWRTStaticMethods();
 //		methodHiding();
 //		varArgOverriding();
-		dataMembersOverriding();
+//		dataMembersOverriding();
 	}
 	
 	public static void concept(){
@@ -33,18 +33,21 @@ public class Overriding {
 		Parent_1 parent1	=	new Parent_1();
 		
 		parent1.parentMethod();
-//		parent.parentMethod1();//CE:The method parentMethod1() from the type Parent is not visible
+//		parent1.parentMethod1();//CE:The method parentMethod1() from the type Parent is not visible
 		
 		
 		Child_1 child1		=  new Child_1();
 		
-		child1.childMethod();
-		child1.parentMethod();
+//		child1.childMethod();
+//		child1.parentMethod();
+		child1.m3();
 		
 		Parent_1 parent2	= new Child_1();
 		
 		parent2.parentMethod();//this calls parentMethod which is overridden child class
 		parent2.m1();
+//		parent2.m3();
+//		parent2.m1();
 		
 		/*
 		 * In the above statement method resolution took place at runtime by jvm,
@@ -131,7 +134,7 @@ public class Overriding {
 		 */
 	}
 	
-	public static void exceptionHierarchyInOverriding() throws IOException{
+	public static void exceptionHierarchyInOverriding() throws IOException {
 		/*
 		 * Just like access modifiers, overriding method should only same
 		 * exception class as parent or its parent class
@@ -200,12 +203,13 @@ public class Overriding {
 		child.varargMethod();//this and below both are valid and both calls var-arg parameterized methods
 		child.varargMethod("","");
 		child.varargMethod("");
-		
+		System.out.println();
 		
 		Parent_2 parent1	=	new Child_2();
 		parent1.varargMethod();//this and below both are valid and both calls var-arg parameterized methods
 		parent1.varargMethod("","");
 		parent1.varargMethod("");
+		System.out.println();
 		
 	}
 
@@ -281,4 +285,8 @@ class Child_1 extends Parent_1{
 //	public final void m2(){//CE:Cannot override the final method from Parent_1
 //		System.out.println("parent final method");
 //	}
+	
+	public final void m3(){
+	System.out.println("Child_1 m3()");
+}
 }

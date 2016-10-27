@@ -12,15 +12,21 @@ public class MergeManyArrays {
 		int[] src4={16,17,18,19,20};
 		int[] dest=new int[src1.length+src2.length+src3.length+src4.length];
 		
-		System.arraycopy(src1, 0, dest, 0, src1.length);
+		int totalLength=src1.length;
+		
+		System.arraycopy(src1, 0, dest, 0, totalLength);
 		System.out.println(Arrays.toString(dest));
-		System.arraycopy(src2, 0, dest, src1.length, src2.length);
-		System.out.println(Arrays.toString(dest));
-		System.arraycopy(src3, 0, dest, src1.length+src2.length, src3.length);
-		System.out.println(Arrays.toString(dest));
-		System.arraycopy(src4, 0, dest, src1.length+src2.length+src3.length, src4.length);
+		
+		System.arraycopy(src2, 0, dest, totalLength,src2.length );
+		totalLength=totalLength+src2.length;
 		System.out.println(Arrays.toString(dest));
 
+		System.arraycopy(src3, 0, dest, totalLength, src3.length);
+		System.out.println(Arrays.toString(dest));
+		totalLength=totalLength+src3.length;
+		
+		System.arraycopy(src4, 0, dest, totalLength, src4.length);
+		System.out.println(Arrays.toString(dest));
 	}
 
 }

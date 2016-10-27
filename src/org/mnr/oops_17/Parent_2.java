@@ -39,7 +39,7 @@ public  class Parent_2 {
 	
 	public void varargMethod(String ... strings){
 		
-		System.out.println("parent varargMethod");
+		System.out.println((strings==null?"zero param":strings.length)+" parent varargMethod");
 	}
 	
 	public void varargMethod(String strings){
