@@ -36,6 +36,10 @@ public class Child_2 extends Parent_2 {
 	
 //	public  void m7(){}//CE:This instance method cannot override the static method from Parent_2
 	
+	public static void m7(){
+		System.out.println("Child_2 m7()");
+	}
+	
 //	public static  void m8(){} //CE:This static method cannot hide the instance method from Parent_2
 	
 	public static void m9(){
@@ -45,7 +49,7 @@ public class Child_2 extends Parent_2 {
 	@Override
 	public void varargMethod(String ... strings){
 		
-		System.out.println("child varargMethod");
+		System.out.println((strings==null?"zero param":strings.length)+" child varargMethod");
 	}
 	
 	public void varargMethod(String strings){

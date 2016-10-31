@@ -5,12 +5,12 @@ public class Overloading {
 	public static void main(String[] args) {
 		
 //		concept();
-//		automaticPromotionInOverloading();
+		automaticPromotionInOverloading();
 //		argumentPrecedence();
 //		ambiguity();
 //		ambiguity2();
 //		varArgOverloading();
-		overloadingBasedOnReferenceType();
+//		overloadingBasedOnReferenceType();
 	}
 	
 	public static void concept()
@@ -45,7 +45,7 @@ public class Overloading {
 		  * 
 		  */
 		 
-		 short param=2;
+		 int param=2;
 		 m1(param);
 		 
 		 /*
@@ -62,11 +62,11 @@ public class Overloading {
 	 }
 	 
 	 public static void m1(byte b){
-		 System.out.println("byte method");
+		 System.out.println("byte method | param:"+b);
 	 }
 	 
-	 public static void m1(int b){
-		 System.out.println("int method");
+	 public static void m1(double b){
+		 System.out.println("int method| param:"+b);
 	 }
 	
 	public static void argumentPrecedence(){
