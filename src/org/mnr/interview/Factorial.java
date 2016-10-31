@@ -2,7 +2,7 @@ package org.mnr.interview;
 
 import java.text.MessageFormat;
 
-public class Fibonacci {
+public class Factorial {
     
     
     public static int fibonacci(int n) {
@@ -43,7 +43,7 @@ public class Fibonacci {
     }
     
     public static void main(String[] args) {
-        int n = 30;
+        int n = 10;
         long startTime = System.nanoTime();
         System.out.println(MessageFormat.format("result = {0}; calculated in {1}ns", fibonacci(n), System.nanoTime()-startTime));
         startTime = System.nanoTime();

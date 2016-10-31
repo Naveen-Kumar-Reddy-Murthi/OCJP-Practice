@@ -32,6 +32,12 @@ class ThreadB extends Thread{
 			for(int i=0;i<=100;i++){
 				total=total+i;
 			}
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			System.out.println("Child thread notifying waiting thread");
 			this.notify();
 		}

@@ -6,7 +6,7 @@ public class RemoveArrayDuplicates {
 
 	public static void main(String[] args) {
 		
-		int[] arr = new int[]{0,1,2,2,3,3,3};
+		int[] arr = new int[]{0,0,1,2,3};
 		arr=removeDups(arr);
 		System.out.println(Arrays.toString(arr));
 
