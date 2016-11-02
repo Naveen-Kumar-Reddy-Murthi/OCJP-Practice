@@ -4,8 +4,8 @@ public class ImportantThreadMethods {
 
 	public static void main(String[] args) throws InterruptedException {
 		
-		yield();
-//		joinCase1();
+//		yield();
+		joinCase1();
 //		joinCase2();
 //		deadlock1();
 //		deadlock2();
