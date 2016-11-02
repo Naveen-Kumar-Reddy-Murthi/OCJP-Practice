@@ -22,7 +22,7 @@ public class SelectionSort {
 			arr[i]=arr[minIndex];
 			arr[minIndex]=temp;
 			
-			
+//			System.out.println(Arrays.toString(arr));
 		}
 		System.out.println("Selection Sort:"+Arrays.toString(arr));
 	}
