@@ -13,11 +13,11 @@ public class RegexDemo {
 		int count=0;
 		Pattern pattern	=	Pattern.compile("ab");//pattern object which takes pattern to be matched
 		Matcher matcher	=	pattern.matcher("abbabbba");//matcher object which takes target string in which pattern to be searched
-//		System.out.println(matcher.find());
-//		while(matcher.find()){
-//			++count;
-//			System.out.println(matcher.start()+" | "+matcher.end() +" | "+matcher.group());
-//		}
+		System.out.println(matcher.find());
+		while(matcher.find()){
+			++count;
+			System.out.println(matcher.start()+" | "+matcher.end() +" | "+matcher.group());
+		}
 		
 		/**
 		 * some pattern examples

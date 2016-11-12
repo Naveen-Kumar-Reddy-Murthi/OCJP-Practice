@@ -19,8 +19,8 @@ public class EmailAddressValidation {
 		String input	=	scanner.next();
 		scanner.close();
 		
-//		pattern	=	Pattern.compile("[a-zA-Z0-9_.]*@[a-zA-Z0-9]+[.]([a-zA-Z])");
-		pattern=	Pattern.compile("[0-9a-zA-Z]*@gmail.com");
+		pattern	=	Pattern.compile("[a-zA-Z0-9_.]*@[a-zA-Z0-9]+[.]([a-zA-Z])");
+//		pattern=	Pattern.compile("[0-9a-zA-Z]*@gmail.com");
 		
 		matcher	=	pattern.matcher(input);
 		if(matcher.find())

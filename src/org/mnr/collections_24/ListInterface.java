@@ -32,7 +32,7 @@ public class ListInterface {
 //		ArrayListDemo();
 //		LinkedListDemo();
 //		VectorDemo();
-//		StackDemo();
+		StackDemo();
 		copyOnWriteArrayListDemo();
 	}
 	@SuppressWarnings({ "rawtypes", "unchecked" })
