@@ -7,12 +7,12 @@ public static void main(String...a){
 	Scanner sc =new Scanner(System.in);
 	  String input=sc.nextLine();
 	  StringBuilder sb =new StringBuilder();
-	  int length=input.length();
-	  while(length>=0){
-		  if(length-1>=0)
-		  sb.append(input.charAt(length-1));
-		  length--;
+	  
+	  for(int i=input.length()-1;i>=0;i--)
+	  {
+		  sb.append(input.charAt(i));
 	  }
-	  System.out.println("output::"+sb.toString());
+	  System.out.println(sb.toString());
+		  
 }
 }
