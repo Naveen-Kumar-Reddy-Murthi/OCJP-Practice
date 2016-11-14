@@ -35,6 +35,7 @@ class MyRunnable implements Runnable{
 			}
 			System.out.println("I'm done. Nofifying");
 			this.notify();
+			System.out.println("after notify");
 		}
 		
 	}
