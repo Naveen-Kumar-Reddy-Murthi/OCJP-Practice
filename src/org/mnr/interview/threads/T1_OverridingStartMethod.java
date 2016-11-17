@@ -1,6 +1,6 @@
 package org.mnr.interview.threads;
 
-public class T1_OverridingRunMethod {
+public class T1_OverridingStartMethod {
 	
 	public static void main(String...args){
 		
