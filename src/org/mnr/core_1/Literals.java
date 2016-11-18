@@ -6,7 +6,7 @@ public class Literals {
 		byte b=1;
 		byte b1= (byte) 1.234f;
 		System.out.println(b1);
-		float f=123.45644f;
+		float f=(float) 123.45644;
 		System.out.println(f);
 		int i=(int) 123.456f;
 		System.out.println(i);
