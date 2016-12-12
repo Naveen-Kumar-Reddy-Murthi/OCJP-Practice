@@ -97,6 +97,18 @@ public class GenericTypes {
 		 */
 	}
 }
+
+class Template5<T>{
+	 
+	 private T value;
+	 Template5(T i){
+		 this.value=i;
+	 }
+	 public void show(){
+		 System.out.println("Class type:"+value.getClass().getName());
+	 }
+}
+
 class Template1<Integer>{
 	 
 	 private Integer value;

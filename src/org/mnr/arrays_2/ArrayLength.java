@@ -17,7 +17,10 @@ public class ArrayLength {
 //		length is a final variable of array representing its size
 //		in multidimensional arrays length represents the base size of an array
 		
-		int[][][] arr2={{{1,2,3},{3,2,1}},{{4,5,6,7,8},{9,10,11,12,13}}};
+		int[][][] arr2 = { 
+							{ { 1, 2, 3 }, { 3, 2, 1 } },
+							{ { 4, 5, 6, 7, 8 }, { 9, 10, 11, 12, 13 } } 
+						};
 		System.out.println(arr2.length);
 		
 //		Following is the way to find total size of a multidimensional/2D array

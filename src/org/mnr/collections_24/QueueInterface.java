@@ -23,6 +23,7 @@ public class QueueInterface {
 	}
 	
 //	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void PriorityQueueDemo(){
 		/**
 		 * ds: Queue
@@ -34,22 +35,22 @@ public class QueueInterface {
 		 * null insertion is not possible 
 		 */
 		
-//		PriorityQueue	queue	=	new PriorityQueue(10,new IntegerComparator());
-//		
-//		for(int i=0;i<=10;i++)
-//			queue.offer(i);
-//		System.out.println(queue);
-//		
-//		PriorityQueue	queue1	=	new PriorityQueue(10,new StringComparator());
-//		
-//			queue1.offer("A");
-//			queue1.offer("Z");
-//			queue1.offer("L");
-//			queue1.offer("B");
-//			System.out.println(queue1);
-//			System.out.println(queue1.poll());//returns null if queue is empty
-//			System.out.println(queue1.remove());//java.util.NoSuchElementException if queue is empty
-//			System.out.println(queue1);
+		PriorityQueue	queue	=	new PriorityQueue(10,new IntegerComparator());
+		
+		for(int i=0;i<=10;i++)
+			queue.offer(i);
+		System.out.println(queue);
+		
+		PriorityQueue	queue1	=	new PriorityQueue(10,new StringComparator());
+		
+			queue1.offer("A");
+			queue1.offer("Z");
+			queue1.offer("L");
+			queue1.offer("B");
+			System.out.println(queue1);
+			System.out.println(queue1.poll());//returns null if queue is empty
+			System.out.println(queue1.remove());//java.util.NoSuchElementException if queue is empty
+			System.out.println(queue1);
 			//natural ordering example of priority queue
 			Queue<Integer> integerPriorityQueue = new PriorityQueue<>(7);
 			Random rand = new Random();

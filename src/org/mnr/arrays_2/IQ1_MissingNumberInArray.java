@@ -6,9 +6,10 @@ public class IQ1_MissingNumberInArray {
 
 	public static void main(String[] args) {
 		
-		int[] arr	=	new int[100];
-		for(int i=0;i<100;i++){
-				arr[i]=i+1;
+		int[] arr	=	new int[101];
+		for(int i=1;i<=100;i++){
+			if(i!=50)
+				arr[i]=i;		
 		}
 		System.out.println(Arrays.toString(arr));
 		System.out.println("Missing value is:"+(getSumOfNValues(100)-getSum(arr)));
@@ -29,7 +30,6 @@ public class IQ1_MissingNumberInArray {
 		
 	
 		int sum=0;
-		for(int i=1;i<=maxVal;i++)
 			sum=(maxVal*(maxVal+1))/2;
 			
 		return sum;

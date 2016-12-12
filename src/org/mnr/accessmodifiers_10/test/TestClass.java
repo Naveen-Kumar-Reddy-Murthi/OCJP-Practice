@@ -14,7 +14,7 @@ public class TestClass extends MemberLevelModifiers{
 		MemberLevelModifiers obj1	= new MemberLevelModifiers();
 		obj1.m1();//public method available from parent reference
 		obj1.m5();//public final method available from parent reference
-
+//		obj1.m3();//protected method not available using parent object from outside its package
 	}
 
 }

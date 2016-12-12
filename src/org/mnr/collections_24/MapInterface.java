@@ -190,7 +190,7 @@ public class MapInterface {
 		 * 2. Objec lastKey();
 		 * 3. SortedMap headMap(Object key);
 		 * 4. SortedMap tailMap(Object key);
-		 * 5. SortedMap subMap(Object key);
+		 * 5. SortedMap subMap(Object key,Object key);
 		 * 6. Comparator comparator();
 		 */
 	}

@@ -66,7 +66,7 @@ public class Overloading {
 	 }
 	 
 	 public static void m1(double b){
-		 System.out.println("int method| param:"+b);
+		 System.out.println("double method| param:"+b);
 	 }
 	
 	public static void argumentPrecedence(){
