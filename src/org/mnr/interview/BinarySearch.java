@@ -3,25 +3,35 @@ package org.mnr.interview;
 public class BinarySearch {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		binarySearch(new int[]{1,2,3,4,5,6},0);
 
 	}
 	
 	public static void binarySearch(int arr[],int key)
 	{
-		int first=0;
-		int last=arr.length-1;
+		int lowIndex=0;
+		int highIndex=arr.length;
+		int mid=0;
 		
-		
-		while(last<=first)
+		while(lowIndex<=highIndex)
 		{
-			int mid=first+last/2;
-			
-			
-			
+			 mid=(lowIndex+highIndex)/2;
+			 
+			 if(key<arr[mid]){
+				 highIndex=mid-1;
+			 }
+			 else if(key>arr[mid]){
+				 lowIndex=mid+1;
+			 }
+			 else if(key==arr[mid]){
+				 System.out.println(key);	
+			 break;
+			 }
+			 else{
+				 System.out.println("not found");
+				 break;
+			 }
 		}
-		
-		
 	}
 
 }

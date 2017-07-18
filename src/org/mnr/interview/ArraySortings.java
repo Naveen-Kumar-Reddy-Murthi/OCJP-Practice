@@ -13,7 +13,7 @@ public class ArraySortings {
 		arr=selectionSort(new int[]{10,121,12,567,39,3,2,1234});
 		System.out.println(Arrays.toString(arr));
 //		linearSearch(arr, 121);
-//		binarySearch(arr, 1234);
+		binarySearch(arr, 1234);
 		System.out.println(MessageFormat.format("Operation done in {0} nano seconds",(System.nanoTime()-startTime)));
 		//
 		

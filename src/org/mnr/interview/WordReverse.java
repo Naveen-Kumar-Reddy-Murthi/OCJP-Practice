@@ -7,7 +7,7 @@ public class WordReverse {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		String input =sc.nextLine();
-		reverseWOAPI(input);
+//		reverseWOAPI(input);
 		reverseWAPI(input);
 	}
 	
