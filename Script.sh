@@ -19,3 +19,25 @@ for file in "$source_dir"/*; do
     fi
   fi
 done
+
+
+
+
+
+
+#!/bin/bash
+
+# set the source directory
+source_dir="/path/to/source/directory"
+
+# set the destination directory
+destination_dir="/path/to/destination/directory"
+
+# loop through all files in the source directory
+for file in "$source_dir"/*; do
+  # check if the file is a regular file
+  if [ -f "$file" ]; then
+    # move the file to the destination directory
+    mv "$file" "$destination_dir"
+  fi
+done
