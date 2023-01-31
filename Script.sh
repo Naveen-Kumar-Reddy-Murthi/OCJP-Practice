@@ -41,3 +41,34 @@ for file in "$source_dir"/*; do
     mv "$file" "$destination_dir"
   fi
 done
+
+
+
+
+
+
+
+
+
+
+
+
+# Set the S3 bucket name
+BUCKET_NAME='my-bucket'
+
+# Set the prefix for the files you want to download
+FILE_PREFIX='prefix'
+
+# Get the current date in the format YYYY-MM-DD
+CURRENT_DATE=$(date +%Y-%m-%d)
+
+# Get the credentials
+# AWS_ACCESS_KEY_ID=<YOUR_ACCESS_KEY>
+# AWS_SECRET_ACCESS_KEY=<YOUR_SECRET_KEY>
+
+# Use the curl command to list all objects in the bucket with the specified prefix
+for key in $(curl -s -H "Authorization: AWS ${AWS_ACCESS_KEY_ID}:${AWS_SECRET_ACCESS_KEY}" https://s3.amazonaws.com/$BUCKET_NAME?prefix=$FILE_PREFIX | grep -o '<Key>.*</Key>' | awk -F'[<>]' '{print $3}'); do
+  # Use the curl command to download each file
+  curl -s -H "Authorization: AWS ${AWS_ACCESS_KEY_ID}:${AWS_SECRET_ACCESS_KEY}" https://s3.amazonaws.com/$BUCKET_NAME/$key -o "$key"
+done
+
