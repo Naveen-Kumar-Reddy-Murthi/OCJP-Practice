@@ -102,3 +102,47 @@ public class ExecuteCommand {
     }
 }
 
+
+import com.jcraft.jsch.*;
+
+public class ExecuteCommand {
+    public static void main(String[] args) {
+        try {
+            JSch jsch = new JSch();
+            Session session = jsch.getSession("user", "host", 22);
+            session.setPassword("password");
+            session.setConfig("StrictHostKeyChecking", "no");
+            session.connect();
+            
+            ChannelExec channelExec = (ChannelExec) session.openChannel("exec");
+            channelExec.setCommand("./script.sh [parameter1] [parameter2] [parameter3]");
+            
+            InputStream stdout = channelExec.getInputStream();
+            InputStream stderr = channelExec.getErrStream();
+            
+            channelExec.connect();
+            
+            BufferedReader reader = new BufferedReader(new InputStreamReader(stdout));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println("stdout: " + line);
+            }
+            
+            reader = new BufferedReader(new InputStreamReader(stderr));
+            while ((line = reader.readLine()) != null) {
+                System.err.println("stderr: " + line);
+            }
+            
+            channelExec.disconnect();
+            session.disconnect();
+        } catch (JSchException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+
+
+
+
