@@ -71,4 +71,34 @@ for key in $(curl -s -H "Authorization: AWS ${AWS_ACCESS_KEY_ID}:${AWS_SECRET_AC
   # Use the curl command to download each file
   curl -s -H "Authorization: AWS ${AWS_ACCESS_KEY_ID}:${AWS_SECRET_ACCESS_KEY}" https://s3.amazonaws.com/$BUCKET_NAME/$key -o "$key"
 done
+import com.jcraft.jsch.*;
+
+public class ExecuteCommand {
+    public static void main(String[] args) {
+        try {
+            JSch jsch = new JSch();
+            Session session = jsch.getSession("user", "host", 22);
+            session.setPassword("password");
+            session.setConfig("StrictHostKeyChecking", "no");
+            session.connect();
+            
+            ChannelExec channelExec = (ChannelExec) session.openChannel("exec");
+            channelExec.setCommand("your command here");
+            
+            channelExec.connect();
+            InputStream inputStream = channelExec.getInputStream();
+            
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+            
+            channelExec.disconnect();
+            session.disconnect();
+        } catch (JSchException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
 
