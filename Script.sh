@@ -172,5 +172,45 @@ for file in $files; do
 done
 
 
+#!/bin/bash
+
+# Check if all three parameters are provided
+if [ $# -lt 3 ]; then
+  echo "Usage: $0 <date> <directory> <prefix>"
+  exit 1
+fi
+
+# Set the path to the directory you want to search for files
+directory="$2"
+
+# Check if the directory exists
+if [ ! -d "$directory" ]; then
+  echo "Directory $directory not found."
+  exit 1
+fi
+
+# Check if the date parameter is provided in the YYYY-MM-DD format
+if ! date -d "$1" >/dev/null 2>&1; then
+  echo "Please provide a date in the YYYY-MM-DD format."
+  exit 1
+fi
+
+# Use find command to list all files modified or added on the specified date
+files=$(find "$directory" -type f -newermt "$1" ! -newermt "$(date -d "$1 + 1 day" +%F)" -name "$3*")
+
+# Check if any files are found
+if [ -z "$files" ]; then
+  echo "No files found for the specified date and prefix."
+  exit 0
+fi
+
+# Iterate over each file in the list
+for file in $files; do
+  # Print the full path of the file
+  echo "Deleting $file"
+
+  # Delete the file
+  rm "$file"
+done
 
 
