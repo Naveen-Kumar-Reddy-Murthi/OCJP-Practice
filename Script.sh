@@ -142,6 +142,34 @@ public class ExecuteCommand {
 }
 
 
+#!/bin/bash
+
+# Set the path to the directory you want to search for files
+directory="/path/to/directory"
+
+# Check if the date parameter is provided
+if [ -z "$1" ]; then
+  echo "Please provide a date in the YYYY-MM-DD format."
+  exit 1
+fi
+
+# Use find command to list all files modified or added on the specified date
+files=$(find "$directory" -type f -newermt "$1" ! -newermt "$(date -d "$1 + 1 day" +%F)")
+
+# Check if any files are found
+if [ -z "$files" ]; then
+  echo "No files found for the specified date."
+  exit 0
+fi
+
+# Iterate over each file in the list
+for file in $files; do
+  # Print the full path of the file
+  echo "Deleting $file"
+  
+  # Delete the file
+  rm "$file"
+done
 
 
 
