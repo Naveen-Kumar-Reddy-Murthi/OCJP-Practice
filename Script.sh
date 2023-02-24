@@ -357,3 +357,4 @@ for dir_and_prefix in "${dirs_and_prefixes[@]}"; do
     done
 done
 
+find "$directory" -type f -newermt "$(date -d "$days_back days ago" +%F)" ! -newermt "$(date -d "$days_back - 1 day" +%F)"
