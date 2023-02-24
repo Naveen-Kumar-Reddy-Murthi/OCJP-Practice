@@ -213,4 +213,51 @@ for file in $files; do
   rm "$file"
 done
 
+########
+
+
+#!/bin/bash
+
+# Define an array of directories and prefixes to check
+dirs_and_prefixes=(
+    "/path/to/dir1 prefix1"
+    "/path/to/dir2 prefix2"
+    "/path/to/dir3 prefix3"
+)
+
+# Set the number of days to go back
+days_back=2
+
+# Get the current date in the YYYY-MM-DD format
+current_date=$(date +%F)
+
+# Iterate over each directory and prefix in the array
+for dir_and_prefix in "${dirs_and_prefixes[@]}"; do
+    # Split the directory and prefix using a space as the delimiter
+    IFS=" " read -r directory prefix <<< "$dir_and_prefix"
+
+    # Check if the directory exists
+    if [ ! -d "$directory" ]; then
+        echo "Directory $directory not found."
+        continue
+    fi
+
+    # Use find command to list all files modified or added on or before the specified date
+    files=$(find "$directory" -type f -mtime +"$days_back" -name "$prefix*")
+
+    # Check if any files are found
+    if [ -z "$files" ]; then
+        echo "No files found for $prefix in $directory that are $days_back or more days old."
+        continue
+    fi
+
+    # Iterate over each file in the list
+    for file in $files; do
+        # Print the full path of the file
+        echo "Deleting $file"
+
+        # Delete the file
+        rm "$file"
+    done
+done
 
