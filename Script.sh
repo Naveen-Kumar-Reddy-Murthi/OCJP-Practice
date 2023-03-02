@@ -410,4 +410,44 @@ for dir_and_prefix in "${dirs_and_prefixes[@]}"; do
     done
 done
 
+###########
+
+
+#!/bin/bash
+
+# Set the S3 bucket details
+bucket="your-bucket-name"
+folder="your/nested/folder"
+region="your-region"
+host="s3.$region.amazonaws.com"
+url="https://$host/$bucket"
+
+# Set the AWS credentials
+access_key="your-access-key"
+secret_key="your-secret-key"
+
+# Set the file path and name
+file_path="/path/to/file"
+file_name="file.txt"
+
+# Set the content type of the file
+content_type="text/plain"
+
+# Set the date
+date=$(date -u "+%a, %d %b %Y %H:%M:%S GMT")
+
+# Set the resource path
+resource="/$bucket/$folder/$file_name"
+
+# Generate the signature
+string_to_sign="PUT\n\n$content_type\n$date\n$resource"
+signature=$(echo -en "${string_to_sign}" | openssl sha1 -hmac "${secret_key}" -binary | base64)
+
+# Upload the file to S3
+curl -X PUT -T "${file_path}/${file_name}" \
+  -H "Host: ${host}" \
+  -H "Date: ${date}" \
+  -H "Content-Type: ${content_type}" \
+  -H "Authorization: AWS ${access_key}:${signature}" \
+  "${url}/${folder}/${file_name}"
 
