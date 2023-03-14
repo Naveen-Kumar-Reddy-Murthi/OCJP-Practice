@@ -451,3 +451,48 @@ curl -X PUT -T "${file_path}/${file_name}" \
   -H "Authorization: AWS ${access_key}:${signature}" \
   "${url}/${folder}/${file_name}"
 
+CREATE FUNCTION formatAccountNumber(accountNumber varchar(16), accountType char(1), channelIdentifier varchar(16))
+RETURNS varchar(20)
+BEGIN
+DECLARE accNum varchar(20);
+DECLARE bbb varchar(3);
+DECLARE sno varchar(6);
+DECLARE chk varchar(1);
+
+CASE accountType
+    WHEN '11' THEN
+        SET bbb = SUBSTRING(accountNumber, 1, 3);
+        SET sno = SUBSTRING(accountNumber, 4, 6);
+        SET chk = SUBSTRING(accountNumber, 14, 1);
+        SET accNum = CONCAT(bbb, '-', chk, '-', sno);
+    WHEN '12' THEN
+        SET bbb = SUBSTRING(accountNumber, 1, 3);
+        SET sno = SUBSTRING(accountNumber, 4, 7);
+        SET chk = SUBSTRING(accountNumber, 14, 1);
+        SET accNum = CONCAT(bbb, '-', sno, '-', chk);
+    WHEN '13' THEN
+        SET bbb = SUBSTRING(accountNumber, 1, 3);
+        SET sno = SUBSTRING(accountNumber, 5, 6);
+        SET chk = SUBSTRING(accountNumber, 14, 1);
+        SET accNum = CONCAT(bbb, '-', sno, '-', chk);
+    WHEN '14' THEN
+        SET bbb = SUBSTRING(accountNumber, 1, 3);
+        SET sno = SUBSTRING(accountNumber, 5, 6);
+        SET chk = SUBSTRING(accountNumber, 14, 1);
+        SET accNum = CONCAT(bbb, '-', sno, '-', chk);
+    WHEN '6' THEN
+        IF SUBSTRING(accountNumber, 1, 1) = '1' THEN
+            SET accNum = CONCAT(SUBSTRING(accountNumber, 2, 4), '-', SUBSTRING(accountNumber, 5, 10), '-', SUBSTRING(accountNumber, 11, 16));
+        ELSE
+            SET accNum = CONCAT(SUBSTRING(accountNumber, 1, 4), '-', SUBSTRING(accountNumber, 5, 7), '-', SUBSTRING(accountNumber, 8, 12), '-', SUBSTRING(accountNumber, 13, 16));
+        END IF;
+    WHEN '17' THEN
+        SET accNum = '00000000000000000000';
+    WHEN '8' THEN
+        SET accNum = channelIdentifier;
+    ELSE
+        SET accNum = '';
+END CASE;
+
+RETURN accNum;
+END;
